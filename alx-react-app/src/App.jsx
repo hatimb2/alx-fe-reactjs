@@ -1,3 +1,6 @@
+import Footer from './components/Footer'
+import Main from './components/MainContent'
+import Header from './components/Header'
 import WelcomeMessage from './components/WelcomeMessage'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
@@ -30,6 +33,10 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <div className="App"> <WelcomeMessage /> </div>
+      <div className='Header'><Header /></div>
+      <div className='Main'><Main /></div>
+      <div className='Footer'><Footer /></div>
+      
   </>
   )
 }
