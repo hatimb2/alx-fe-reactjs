@@ -1,9 +1,10 @@
-function MainContent(css) {
+function MainContent() {
     return(
-        <main style={{ backgroundColor: 'white', color: 'wblack', textAlign: 'center'}}>
-            <p>I love to visit New York, Paris, and Tokyo.</p>
+        <main>
+             <p>I love to visit New York, Paris, and Tokyo.</p>
         </main>
     )
+   
     
 }
 export default MainContent
