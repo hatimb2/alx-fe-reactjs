@@ -1,4 +1,4 @@
-function headercomponent () {
+function Header () {
     return(
         <header>
             <h1>My Favorite Cities</h1>
@@ -6,4 +6,4 @@ function headercomponent () {
     )
 
 }
-export default headercomponent
+export default Header
