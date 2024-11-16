@@ -8,9 +8,6 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import React from 'react'
-import UserContext  from './UserContext';
-import ProfilePage from './components/ProfilePage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -42,7 +39,6 @@ function App() {
       <div className='Main'><MainContent /></div>
       <div className='Footer'><Footer /></div>
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-      <UserContext.Provider value={userData}> <ProfilePage /> </UserContext.Provider>
       
     </>
   )
