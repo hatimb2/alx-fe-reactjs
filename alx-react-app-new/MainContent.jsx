@@ -6,3 +6,4 @@ function MainContent(css) {
     )
     
 }
+export default MainContent

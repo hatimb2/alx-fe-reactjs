@@ -6,3 +6,4 @@ function Header(css) {
     )
     
 }
+export default Header

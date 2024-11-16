@@ -6,3 +6,4 @@ function Footer(css) {
     )
     
 }
+export default Footer

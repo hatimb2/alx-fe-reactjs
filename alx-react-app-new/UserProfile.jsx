@@ -8,3 +8,4 @@ function UserProfile(css) {
     )
     
 }
+export default UserProfile
