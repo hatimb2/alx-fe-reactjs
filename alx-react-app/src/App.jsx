@@ -1,4 +1,5 @@
 import UserProfile from './components/UserProfile'
+import React1 from '../../alx-react-app-new/src/components/Counter'
 import Footer from './components/Footer'
 import MainContent from './components/MainContent'
 import Header from './components/Header'
@@ -38,6 +39,7 @@ function App() {
       <div className='Main'><MainContent /></div>
       <div className='Footer'><Footer /></div>
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+      <React1 name = "app calculator"/>
       
   </>
   )
