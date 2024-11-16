@@ -1,5 +1,5 @@
 import Footer from './components/Footer'
-import Main from './components/MainContent'
+import MainContent from './components/MainContent'
 import Header from './components/Header'
 import WelcomeMessage from './components/WelcomeMessage'
 import { useState } from 'react'
@@ -34,7 +34,7 @@ function App() {
       </p>
       <div className="App"> <WelcomeMessage /> </div>
       <div className='Header'><Header /></div>
-      <div className='Main'><Main /></div>
+      <div className='Main'><MainContent /></div>
       <div className='Footer'><Footer /></div>
       
   </>
