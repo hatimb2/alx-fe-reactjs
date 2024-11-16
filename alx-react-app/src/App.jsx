@@ -39,9 +39,8 @@ function App() {
       <div className='Main'><MainContent /></div>
       <div className='Footer'><Footer /></div>
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-      <Counter name = "app counter"/>
       
-  </>
+    </>
   )
 }
 
