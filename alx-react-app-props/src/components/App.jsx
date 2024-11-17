@@ -1,4 +1,6 @@
-import UserProfile from './components/UserProfile'
+import React from 'react'
+import ProfilePage from './ProfilePage' 
+import UserContext from './UserContext'
 import Counter from './components/Counter'
 import Footer from './components/Footer'
 import MainContent from './components/MainContent'
@@ -8,9 +10,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import UserContext from './components/UserContext';
-import React, { UserContext} from 'react'
-import ProfilePage from './components/ProfilePage';
+
 const userData = {
   name: 'John Doe',
   email: 'john.doe@exemple.com'
