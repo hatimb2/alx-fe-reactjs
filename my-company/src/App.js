@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './Home';
-import About from './About';
+import Home from './components/Home';
+import About from './components/About';
 import Services from './Services';
-import Contact from './Contact';
+import Contact from './components/Contact';
 import Footer from './Footer';
 
 function App() {
