@@ -1,4 +1,5 @@
 import { useRecipeStore } from './recipeStore';
+import { Router } from 'react-router-dom';
 
 const RecipeList = () => {
   const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
@@ -9,7 +10,7 @@ const RecipeList = () => {
         <div key={recipe.id}>
           <h2>{recipe.title}</h2>
           <p>{recipe.description}</p>
-          {/* If navigation is needed, it can be handled in the parent component */}
+          {/* Link to the recipe details page, if necessary */}
         </div>
       ))}
     </div>
@@ -17,3 +18,4 @@ const RecipeList = () => {
 };
 
 export default RecipeList;
+
