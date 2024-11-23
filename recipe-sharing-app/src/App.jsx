@@ -5,6 +5,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeDetails from './components/RecipeDetails'
+import SearchBar from './SearchBar'; 
+import RecipeList from './RecipeList';
 import EditRecipeForm from './components/EditRecipeForm'
 import RecipeList from './components/RecipeList'
 
@@ -40,6 +42,7 @@ function App() {
         <Route path="/edit/:recipeId" element={<EditRecipeForm />} />
       </Routes>
     </Router>
+    <div> <h1>Recipe Finder</h1> <SearchBar /> <RecipeList /></div>
     </>
   )
 }
