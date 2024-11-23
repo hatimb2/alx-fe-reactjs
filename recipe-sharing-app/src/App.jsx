@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import FavoritesList from './FavoritesList'; 
+import RecommendationsList from './RecommendationsList';
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeDetails from './components/RecipeDetails'
 import SearchBar from './SearchBar'; 
@@ -43,6 +45,7 @@ function App() {
       </Routes>
     </Router>
     <div> <h1>Recipe Finder</h1> <SearchBar /> <RecipeList /></div>
+    <div> <h1>Recipe Finder</h1> <FavoritesList /> <RecommendationsList /> </div>
     </>
   )
 }
