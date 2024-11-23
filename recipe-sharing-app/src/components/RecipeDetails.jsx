@@ -1,33 +1,26 @@
-import { useState } from 'react';
 import { useRecipeStore } from './recipeStore';
+import EditRecipeForm from './EditRecipeForm';
+import DeleteRecipeButton from './DeleteRecipeButton';
+import { Link } from 'react-router-dom';
 
-const EditRecipeForm = ({ recipeId }) => {
+const RecipeDetails = ({ recipeId }) => {
   const recipe = useRecipeStore(state =>
     state.recipes.find(recipe => recipe.id === recipeId)
   );
-  const [title, setTitle] = useState(recipe.title);
-  const [description, setDescription] = useState(recipe.description);
-  const updateRecipe = useRecipeStore(state => state.updateRecipe);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateRecipe({ id: recipeId, title, description });
-  };
+  if (!recipe) {
+    return <p>Recipe not found</p>;
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button type="submit">Save</button>
-    </form>
+    <div>
+      <h1>{recipe.title}</h1>
+      <p>{recipe.description}</p>
+      <Link to={`/edit/${recipe.id}`}>Edit Recipe</Link>
+      <EditRecipeForm recipeId={recipe.id} />
+      <DeleteRecipeButton recipeId={recipe.id} />
+    </div>
   );
 };
 
-export default EditRecipeForm;
+export default RecipeDetails;
