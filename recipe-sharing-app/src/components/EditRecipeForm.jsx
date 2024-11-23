@@ -8,6 +8,10 @@ const RecipeDetails = ({ recipeId }) => {
     state.recipes.find(recipe => recipe.id === recipeId)
   );
 
+  if (!recipe) {
+    return <p>Recipe not found</p>;
+  }
+
   return (
     <div>
       <h1>{recipe.title}</h1>
@@ -15,6 +19,7 @@ const RecipeDetails = ({ recipeId }) => {
       <Link to={`/edit/${recipe.id}`}>Edit Recipe</Link>
       {/* Render EditRecipeForm and DeleteRecipeButton here */}
       <EditRecipeForm recipeId={recipe.id} />
+      <DeleteRecipeButton recipeId={recipe.id} />
     </div>
   );
 };
