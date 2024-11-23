@@ -9,7 +9,7 @@ const RecipeList = () => {
         <div key={recipe.id}>
           <h2>{recipe.title}</h2>
           <p>{recipe.description}</p>
-          {/* Link to the recipe details page, if necessary */}
+          {/* If navigation is needed, it can be handled in the parent component */}
         </div>
       ))}
     </div>
