@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useRecipeStore } from './recipeStore';  // Assuming Zustand store is in this file
+import { useRecipeStore } from './recipeStore';  // Assuming your Zustand store is in this file
 import { useNavigate } from 'react-router-dom';
 
 const EditRecipeForm = ({ recipeId }) => {
-  // Retrieve the recipe by its ID from the store
+  // Retrieve the recipe by its ID from the Zustand store
   const recipe = useRecipeStore(state =>
     state.recipes.find(recipe => recipe.id === recipeId)
   );
@@ -13,7 +13,7 @@ const EditRecipeForm = ({ recipeId }) => {
   const [description, setDescription] = useState('');
   const navigate = useNavigate();
 
-  // Populate form fields when the recipe data is loaded
+  // Populate the form fields when the recipe data is loaded
   useEffect(() => {
     if (recipe) {
       setTitle(recipe.title);
@@ -23,14 +23,14 @@ const EditRecipeForm = ({ recipeId }) => {
 
   // Handle the form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission action (page reload)
+    e.preventDefault(); // This is where we prevent the form from refreshing the page
 
     const updatedRecipe = { ...recipe, title, description };
 
-    // Call the store's updateRecipe function to update the recipe
+    // Update the recipe in the Zustand store
     useRecipeStore.getState().updateRecipe(updatedRecipe);
 
-    // Redirect to the recipe details page after updating
+    // After submission, navigate to the recipe details page
     navigate(`/recipe/${recipeId}`);
   };
 
@@ -70,4 +70,3 @@ const EditRecipeForm = ({ recipeId }) => {
 };
 
 export default EditRecipeForm;
-
