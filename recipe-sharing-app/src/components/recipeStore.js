@@ -11,12 +11,18 @@ const useRecipeStore = create(set => ({
   // Function to set the recipes (this can be used for bulk updating)
   setRecipes: (recipes) => set({ recipes }),
 
+  // Function to update a recipe
   updateRecipe: (updatedRecipe) => set(state => ({
     recipes: state.recipes.map(recipe =>
       recipe.id === updatedRecipe.id ? updatedRecipe : recipe
     )
   })),
-  
+
+  // Function to delete a recipe
+  deleteRecipe: (recipeId) => set(state => ({
+    recipes: state.recipes.filter(recipe => recipe.id !== recipeId) // Removes the recipe with the given id
+  })),
+
   // Function to add a recipe to favorites
   addFavorite: (recipeId) => set(state => ({ favorites: [...state.favorites, recipeId] })),
 
@@ -31,5 +37,3 @@ const useRecipeStore = create(set => ({
 }));
 
 export default useRecipeStore;
-
-
