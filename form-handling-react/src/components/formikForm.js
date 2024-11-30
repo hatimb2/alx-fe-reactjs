@@ -4,7 +4,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const FormikForm = () => {
+const formikForm = () => {
   // Formik hook for handling form state and validation
   const formik = useFormik({
     initialValues: {
@@ -78,4 +78,4 @@ const FormikForm = () => {
   );
 };
 
-export default FormikForm;
+export default formikForm
