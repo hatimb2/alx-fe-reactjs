@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
+import TodoItem from './TodoItem';  // Keep this import if you're using a separate TodoItem component
 
 function TodoList() {
-  // Initial state with a few demo todos
   const [todos, setTodos] = useState([
     { id: 1, text: 'Learn React', completed: false },
     { id: 2, text: 'Learn Jest', completed: false },
     { id: 3, text: 'Write Tests', completed: false },
   ]);
-  
   const [newTodo, setNewTodo] = useState('');
 
   const handleAddTodo = (e) => {
     e.preventDefault();
     if (newTodo.trim() !== '') {
       const newTodoItem = {
-        id: Date.now(),
+        id: Date.now(), // Generate a unique ID based on timestamp
         text: newTodo,
         completed: false,
       };
-      setTodos((prevTodos) => [...prevTodos, newTodoItem]);
+      setTodos([...todos, newTodoItem]);
       setNewTodo('');
     }
   };
 
   const handleToggleComplete = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    ));
   };
 
   const handleDeleteTodo = (id) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    setTodos(todos.filter(todo => todo.id !== id));
   };
 
   return (
@@ -49,17 +46,12 @@ function TodoList() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li
+          <TodoItem
             key={todo.id}
-            onClick={() => handleToggleComplete(todo.id)}
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          >
-            {todo.text}
-            <button onClick={(e) => {
-              e.stopPropagation();
-              handleDeleteTodo(todo.id);
-            }}>Delete</button>
-          </li>
+            todo={todo}
+            onToggleComplete={handleToggleComplete}
+            onDelete={handleDeleteTodo}
+          />
         ))}
       </ul>
     </div>
