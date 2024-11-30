@@ -8,9 +8,10 @@ import Profile from './components/Profile';
 import Post from './components/Post';
 import ProtectedRoute from './components/ProtectedRoute';
 import BlogPost from './components/BlogPost';
+import useAuth from './components/useAuth';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, login, logout } = useAuth(); // Access auth state from useAuth
 
   return (
     <Router>
@@ -32,7 +33,7 @@ function App() {
             <Link to="/blog/2">Blog Post 2</Link>
           </li>
           <li>
-            <button onClick={() => setIsAuthenticated(!isAuthenticated)}>
+            <button onClick={() => (isAuthenticated ? logout() : login())}>
               {isAuthenticated ? 'Logout' : 'Login'}
             </button>
           </li>
@@ -42,18 +43,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<h2>Login Page</h2>} />
+        
+        {/* Protected Route for Profile */}
         <Route
           path="/profile/*"
           element={
             <ProtectedRoute
               element={<Profile />}
-              isAuthenticated={isAuthenticated}
             />
           }
         />
-        <Route path="/posts/:postId" element={<Post />} />
         
-        {/* Dynamic Route for Blog Post */}
+        <Route path="/posts/:postId" element={<Post />} />
         <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
