@@ -1,24 +1,16 @@
 module.exports = {
   verbose: true,
   collectCoverage: true,
-  coverageDirectory: "coverage",
-
+  coverageDirectory: 'coverage',
   rootDir: './',
-
   clearMocks: true,
-
   setupFilesAfterEnv: [
-    '@testing-library/jest-dom', // This will add jest-dom matchers globally
+    'jest-environment-jsdom',              // Ensure jsdom is properly set
+    '@testing-library/jest-dom/extend-expect',  // Reference jest-dom correctly
+    '<rootDir>/src/setupTests.js',          // Your setup file, if required
   ],
-
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
-
-  transformIgnorePatterns: [
-    "/node_modules/(?!(@testing-library|react-testing-library)/)",
-  ],
-
   testEnvironment: 'jsdom',
-  moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
 };
