@@ -2,18 +2,17 @@ import React from 'react';
 
 function TodoItem({ todo, onToggleComplete, onDelete }) {
   return (
-    <li
-      onClick={() => onToggleComplete(todo.id)}
-      style={{
-        textDecoration: todo.completed ? 'line-through' : 'none',
-        cursor: 'pointer',
-      }}
-    >
-      {todo.text}
-      <button onClick={(e) => {
-        e.stopPropagation(); // Prevent the click event from triggering toggle
-        onDelete(todo.id);
-      }}>Delete</button>
+    <li>
+      <span
+        style={{
+          textDecoration: todo.completed ? 'line-through' : 'none',
+          cursor: 'pointer',
+        }}
+        onClick={() => onToggleComplete(todo.id)}
+      >
+        {todo.text}
+      </span>
+      <button onClick={() => onDelete(todo.id)}>Delete</button>
     </li>
   );
 }

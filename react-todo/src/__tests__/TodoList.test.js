@@ -52,3 +52,48 @@ describe('TodoList Component', () => {
     expect(todo).not.toBeInTheDocument();
   });
 });
+import { render, screen, fireEvent } from '@testing-library/react';
+import TodoList from './TodoList';
+
+test('renders the TodoList component', () => {
+  render(<TodoList />);
+
+  // Check if the Todo List header is rendered
+  expect(screen.getByText(/Todo List/i)).toBeInTheDocument();
+
+  // Check if the initial todos are rendered
+  expect(screen.getByText(/Learn React/i)).toBeInTheDocument();
+  expect(screen.getByText(/Learn Jest/i)).toBeInTheDocument();
+  expect(screen.getByText(/Write Tests/i)).toBeInTheDocument();
+});
+
+test('adds a new todo item', () => {
+  render(<TodoList />);
+
+  // Type a new todo and submit
+  fireEvent.change(screen.getByPlaceholderText(/Add a new todo/i), { target: { value: 'Test new Todo' } });
+  fireEvent.click(screen.getByText(/Add Todo/i));
+
+  // Check if the new todo is rendered
+  expect(screen.getByText(/Test new Todo/i)).toBeInTheDocument();
+});
+
+test('marks a todo as completed', () => {
+  render(<TodoList />);
+
+  // Click to mark "Learn React" as completed
+  fireEvent.click(screen.getByText(/Learn React/i));
+
+  // Verify the text is struck through
+  expect(screen.getByText(/Learn React/i).style.textDecoration).toBe('line-through');
+});
+
+test('deletes a todo item', () => {
+  render(<TodoList />);
+
+  // Delete "Learn Jest"
+  fireEvent.click(screen.getAllByText(/Delete/i)[0]);
+
+  // Verify the deleted todo is no longer in the document
+  expect(screen.queryByText(/Learn Jest/i)).not.toBeInTheDocument();
+});
