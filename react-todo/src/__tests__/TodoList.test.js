@@ -1,11 +1,14 @@
-import '@testing-library/jest-dom';
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react'; // Import `act` from react
 import TodoList from '../components/TodoList';
 
 describe('TodoList Component', () => {
   test('renders the TodoList component', () => {
-    render(<TodoList />);
+    // Use `act` if necessary, though usually `render` will handle this for you
+    act(() => {
+      render(<TodoList />);
+    });
+
     // Check if the initial todos are rendered
     expect(screen.getByText('Learn React')).toBeInTheDocument();
     expect(screen.getByText('Learn Jest')).toBeInTheDocument();
@@ -13,7 +16,9 @@ describe('TodoList Component', () => {
   });
 
   test('allows a user to add a new todo', () => {
-    render(<TodoList />);
+    act(() => {
+      render(<TodoList />);
+    });
     const input = screen.getByPlaceholderText('Add a new todo');
     const button = screen.getByText('Add Todo');
 
@@ -25,7 +30,9 @@ describe('TodoList Component', () => {
   });
 
   test('allows a user to toggle a todo completion', () => {
-    render(<TodoList />);
+    act(() => {
+      render(<TodoList />);
+    });
     const todo = screen.getByText('Learn React');
     
     // Initial state should be not completed
@@ -39,13 +46,14 @@ describe('TodoList Component', () => {
   });
 
   test('allows a user to delete a todo', () => {
-    render(<TodoList />);
+    act(() => {
+      render(<TodoList />);
+    });
     const todoToDelete = screen.getByText('Learn React');
     
     // Check if the todo is present
     expect(todoToDelete).toBeInTheDocument();
     
-    // Get all the delete buttons and click the first one
     const deleteButtons = screen.getAllByText('Delete');
     fireEvent.click(deleteButtons[0]);
     
