@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1733343881085" clover="3.2.0">
-  <project timestamp="1733343881086" name="All files">
+<coverage generated="1733344178441" clover="3.2.0">
+  <project timestamp="1733344178441" name="All files">
     <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="5" methods="10" coveredmethods="10" elements="37" coveredelements="36" complexity="0" loc="21" ncloc="21" packages="1" files="1" classes="1"/>
-    <file name="TodoList.js" path="C:\Users\hatim\alx-fe-reactjs-6\react-todo\src\TodoList.js">
+    <file name="TodoList.jsx" path="C:\Users\hatim\alx-fe-reactjs-6\react-todo\src\TodoList.jsx">
       <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="5" methods="10" coveredmethods="10"/>
       <line num="4" count="1" type="stmt"/>
       <line num="5" count="10" type="stmt"/>
