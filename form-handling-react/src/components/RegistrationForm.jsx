@@ -1,26 +1,27 @@
-// src/components/RegistrationForm.js
+// src/components/RegistrationForm.jsx
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  // Define state for the form inputs
+  // State to hold form input values
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
   });
 
+  // State to hold error messages
   const [errors, setErrors] = useState({
     username: '',
     email: '',
     password: '',
   });
 
-  // Handle input change
+  // Handle change for input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: value,  // Dynamically update the specific field in the formData
     }));
   };
 
@@ -28,21 +29,22 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple validation check
+    // Validation logic
     const newErrors = {};
     if (!formData.username) newErrors.username = 'Username is required';
     if (!formData.email) newErrors.email = 'Email is required';
     if (!formData.password) newErrors.password = 'Password is required';
 
+    // If there are any validation errors, set them and stop the submission
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
-    // Submit form data (for now, just log it)
+    // If no errors, log the form data to the console
     console.log('Form submitted with data:', formData);
 
-    // Clear form data
+    // Optionally, reset form after submission
     setFormData({
       username: '',
       email: '',
@@ -58,7 +60,7 @@ const RegistrationForm = () => {
           type="text"
           id="username"
           name="username"
-          value={formData.username}
+          value={formData.username}  // Controlled component: bind to state
           onChange={handleChange}
         />
         {errors.username && <p>{errors.username}</p>}
@@ -70,7 +72,7 @@ const RegistrationForm = () => {
           type="email"
           id="email"
           name="email"
-          value={formData.email}
+          value={formData.email}  // Controlled component: bind to state
           onChange={handleChange}
         />
         {errors.email && <p>{errors.email}</p>}
@@ -82,7 +84,7 @@ const RegistrationForm = () => {
           type="password"
           id="password"
           name="password"
-          value={formData.password}
+          value={formData.password}  // Controlled component: bind to state
           onChange={handleChange}
         />
         {errors.password && <p>{errors.password}</p>}
