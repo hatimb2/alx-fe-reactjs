@@ -1,44 +1,49 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { useState } from 'react';
 
-const RegistrationSchema = Yup.object().shape({
-  username: Yup.string().required('Username is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().required('Password is required'),
-});
+function RegistrationForm() {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-function FormikForm() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!username || !email || !password) {
+      alert('All fields are required!');
+      return;
+    }
+    // Simulate API call
+    console.log('User registered:', { username, email, password });
+  };
+
   return (
-    <Formik
-      initialValues={{ username: '', email: '', password: '' }}
-      validationSchema={RegistrationSchema}
-      onSubmit={(values) => {
-        // Simulate API call
-        console.log('User registered:', values);
-      }}
-    >
-      {({ errors, touched }) => (
-        <Form>
-          <div>
-            <label>Username:</label>
-            <Field name="username" />
-            <ErrorMessage name="username" component="div" />
-          </div>
-          <div>
-            <label>Email:</label>
-            <Field name="email" type="email" />
-            <ErrorMessage name="email" component="div" />
-          </div>
-          <div>
-            <label>Password:</label>
-            <Field name="password" type="password" />
-            <ErrorMessage name="password" component="div" />
-          </div>
-          <button type="submit">Register</button>
-        </Form>
-      )}
-    </Formik>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Username:</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <button type="submit">Register</button>
+    </form>
   );
 }
 
-export default FormikForm;
+export default RegistrationForm;
