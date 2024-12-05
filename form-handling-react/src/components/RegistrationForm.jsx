@@ -2,26 +2,26 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  // Define form state with useState hook
+  // Form data state to store input field values
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
   });
 
-  // State to handle form errors
+  // Error state to store error messages for validation
   const [errors, setErrors] = useState({
     username: '',
     email: '',
     password: '',
   });
 
-  // Handle input changes
+  // Handle changes in input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,  // Dynamically update the formData object
+      [name]: value,  // Dynamically update the formData for each field
     }));
   };
 
@@ -29,22 +29,22 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple validation logic
+    // Basic validation logic
     const newErrors = {};
     if (!formData.username) newErrors.username = 'Username is required';
     if (!formData.email) newErrors.email = 'Email is required';
     if (!formData.password) newErrors.password = 'Password is required';
 
-    // If there are errors, set them in the errors state and stop submission
+    // If there are validation errors, set them and prevent form submission
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
-    // If no errors, log the form data and reset the form
+    // If no errors, log the form data to the console
     console.log('Form submitted with data:', formData);
 
-    // Reset form
+    // Reset form fields after submission
     setFormData({
       username: '',
       email: '',
@@ -60,10 +60,10 @@ const RegistrationForm = () => {
           type="text"
           id="username"
           name="username"
-          value={formData.username}  // Bind input to formData.username
-          onChange={handleChange}  // Update state on change
+          value={formData.username}  // Corrected value binding
+          onChange={handleChange}  // Update the form data when input changes
         />
-        {errors.username && <p>{errors.username}</p>}  {/* Show error message */}
+        {errors.username && <p>{errors.username}</p>}  {/* Show error if any */}
       </div>
 
       <div>
@@ -72,10 +72,10 @@ const RegistrationForm = () => {
           type="email"
           id="email"
           name="email"
-          value={formData.email}  // Bind input to formData.email
-          onChange={handleChange}  // Update state on change
+          value={formData.email}  // Corrected value binding
+          onChange={handleChange}  // Update the form data when input changes
         />
-        {errors.email && <p>{errors.email}</p>}  {/* Show error message */}
+        {errors.email && <p>{errors.email}</p>}  {/* Show error if any */}
       </div>
 
       <div>
@@ -84,10 +84,10 @@ const RegistrationForm = () => {
           type="password"
           id="password"
           name="password"
-          value={formData.password}  // Bind input to formData.password
-          onChange={handleChange}  // Update state on change
+          value={formData.password}  // Corrected value binding
+          onChange={handleChange}  // Update the form data when input changes
         />
-        {errors.password && <p>{errors.password}</p>}  {/* Show error message */}
+        {errors.password && <p>{errors.password}</p>}  {/* Show error if any */}
       </div>
 
       <button type="submit">Register</button>
