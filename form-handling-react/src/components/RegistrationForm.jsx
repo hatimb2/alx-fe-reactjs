@@ -1,98 +1,49 @@
-// src/components/RegistrationForm.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const RegistrationForm = () => {
-  // Form data state to store input field values
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
+function RegistrationForm() {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  // Error state to store error messages for validation
-  const [errors, setErrors] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
-
-  // Handle changes in input fields
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,  // Dynamically update the formData for each field
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Basic validation logic
-    const newErrors = {};
-    if (!formData.username) newErrors.username = 'Username is required';
-    if (!formData.email) newErrors.email = 'Email is required';
-    if (!formData.password) newErrors.password = 'Password is required';
-
-    // If there are validation errors, set them and prevent form submission
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!username || !email || !password) {
+      alert('All fields are required!');
       return;
     }
-
-    // If no errors, log the form data to the console
-    console.log('Form submitted with data:', formData);
-
-    // Reset form fields after submission
-    setFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
+    // Simulate API call
+    console.log('User registered:', { username, email, password });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="username">Username</label>
+        <label>Username:</label>
         <input
           type="text"
-          id="username"
-          name="username"
-          value={formData.username}  // Corrected value binding
-          onChange={handleChange}  // Update the form data when input changes
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
-        {errors.username && <p>{errors.username}</p>}  {/* Show error if any */}
       </div>
-
       <div>
-        <label htmlFor="email">Email</label>
+        <label>Email:</label>
         <input
           type="email"
-          id="email"
-          name="email"
-          value={formData.email}  // Corrected value binding
-          onChange={handleChange}  // Update the form data when input changes
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        {errors.email && <p>{errors.email}</p>}  {/* Show error if any */}
       </div>
-
       <div>
-        <label htmlFor="password">Password</label>
+        <label>Password:</label>
         <input
           type="password"
-          id="password"
-          name="password"
-          value={formData.password}  // Corrected value binding
-          onChange={handleChange}  // Update the form data when input changes
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        {errors.password && <p>{errors.password}</p>}  {/* Show error if any */}
       </div>
-
       <button type="submit">Register</button>
     </form>
   );
-};
+}
 
 export default RegistrationForm;
