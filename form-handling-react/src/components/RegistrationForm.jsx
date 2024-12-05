@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  // State to store form data (username, email, password)
+  // State to store form input data (username, email, password)
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
   });
 
-  // State to store error messages
+  // State to store error messages for validation
   const [errors, setErrors] = useState({
     username: '',
     email: '',
@@ -21,7 +21,7 @@ const RegistrationForm = () => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,  // Dynamically update the state field based on the name of the input
+      [name]: value,  // Update the state for the corresponding input field
     }));
   };
 
@@ -29,10 +29,9 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Error object to store validation errors
+    // Validation logic
     const newErrors = {};
 
-    // Basic validation checks
     if (!formData.username) {
       newErrors.username = 'Username is required';
     }
@@ -43,16 +42,16 @@ const RegistrationForm = () => {
       newErrors.password = 'Password is required';
     }
 
-    // Check if there are any validation errors
+    // If validation errors exist, set them in the state
     if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);  // Set the errors in state if any are found
-      return;  // Prevent form submission if there are errors
+      setErrors(newErrors);
+      return;  // Stop form submission if validation fails
     }
 
-    // If no errors, proceed with form submission (e.g., log data or send it to an API)
+    // If no errors, log the form data to the console
     console.log('Form submitted with data:', formData);
 
-    // Clear form fields after submission
+    // Reset form after successful submission
     setFormData({
       username: '',
       email: '',
@@ -75,10 +74,10 @@ const RegistrationForm = () => {
           type="text"
           id="username"
           name="username"
-          value={formData.username}  // Controlled input, bound to state
-          onChange={handleChange}  // Update state when input changes
+          value={formData.username}  // Binding value to state
+          onChange={handleChange}  // Handle state updates on input change
         />
-        {errors.username && <p>{errors.username}</p>}  {/* Show error if any */}
+        {errors.username && <p>{errors.username}</p>}  {/* Show error message if any */}
       </div>
 
       <div>
@@ -87,10 +86,10 @@ const RegistrationForm = () => {
           type="email"
           id="email"
           name="email"
-          value={formData.email}  // Controlled input, bound to state
-          onChange={handleChange}  // Update state when input changes
+          value={formData.email}  // Binding value to state
+          onChange={handleChange}  // Handle state updates on input change
         />
-        {errors.email && <p>{errors.email}</p>}  {/* Show error if any */}
+        {errors.email && <p>{errors.email}</p>}  {/* Show error message if any */}
       </div>
 
       <div>
@@ -99,10 +98,10 @@ const RegistrationForm = () => {
           type="password"
           id="password"
           name="password"
-          value={formData.password}  // Controlled input, bound to state
-          onChange={handleChange}  // Update state when input changes
+          value={formData.password}  // Binding value to state
+          onChange={handleChange}  // Handle state updates on input change
         />
-        {errors.password && <p>{errors.password}</p>}  {/* Show error if any */}
+        {errors.password && <p>{errors.password}</p>}  {/* Show error message if any */}
       </div>
 
       <button type="submit">Register</button>
