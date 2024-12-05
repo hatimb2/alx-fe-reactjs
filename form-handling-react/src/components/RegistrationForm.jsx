@@ -1,71 +1,96 @@
-// src/components/RegistrationForm.jsx
+// src/components/RegistrationForm.js
 import React, { useState } from 'react';
 
-function RegistrationForm() {
-  // Initialize state variables for the form
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState({});
+const RegistrationForm = () => {
+  // Define state for the form inputs
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
 
-  // Validation function
-  const validate = () => {
-    const errors = {};
-    if (!username) errors.username = "Username is required";
-    if (!email) errors.email = "Email is required";
-    if (!password) errors.password = "Password is required";
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
+  const [errors, setErrors] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  // Handle input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("Form submitted successfully");
-      console.log({ username, email, password });
-      // Here you would normally send data to an API
+
+    // Simple validation check
+    const newErrors = {};
+    if (!formData.username) newErrors.username = 'Username is required';
+    if (!formData.email) newErrors.email = 'Email is required';
+    if (!formData.password) newErrors.password = 'Password is required';
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
     }
+
+    // Submit form data (for now, just log it)
+    console.log('Form submitted with data:', formData);
+
+    // Clear form data
+    setFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
   };
 
   return (
-    <div>
-      <h2>User Registration</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          {errors.username && <div style={{ color: 'red' }}>{errors.username}</div>}
-        </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        {errors.username && <p>{errors.username}</p>}
+      </div>
 
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {errors.email && <div style={{ color: 'red' }}>{errors.email}</div>}
-        </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        {errors.email && <p>{errors.email}</p>}
+      </div>
 
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {errors.password && <div style={{ color: 'red' }}>{errors.password}</div>}
-        </div>
+      <div>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        {errors.password && <p>{errors.password}</p>}
+      </div>
 
-        <button type="submit">Register</button>
-      </form>
-    </div>
+      <button type="submit">Register</button>
+    </form>
   );
-}
+};
 
 export default RegistrationForm;
