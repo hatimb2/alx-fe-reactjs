@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import TodoList from './components/TodoList'
 import './App.css'
+<<<<<<< HEAD
 import TodoList from './components/TodoList'
 
+=======
+>>>>>>> e4d0abb (done)
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,10 +34,16 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+<<<<<<< HEAD
       <div>
       <h1>Todo List</h1>
       <TodoList />  {/* Render TodoList component */}
     </div>
+=======
+      <div className="App">
+      <TodoList />
+      </div>
+>>>>>>> e4d0abb (done)
     </>
   )
 }
