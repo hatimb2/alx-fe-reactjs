@@ -10,33 +10,39 @@ const AddRecipeForm = () => {
     steps: ''
   });
 
+  // Validate form inputs
+  const validate = () => {
+    const errors = {};
+    let formIsValid = true;
+
+    if (!title) {
+      errors.title = 'Title is required.';
+      formIsValid = false;
+    }
+
+    if (!ingredients) {
+      errors.ingredients = 'Ingredients are required.';
+      formIsValid = false;
+    } else if (ingredients.split('\n').length < 2) {
+      errors.ingredients = 'Please provide at least two ingredients.';
+      formIsValid = false;
+    }
+
+    if (!steps) {
+      errors.steps = 'Preparation steps are required.';
+      formIsValid = false;
+    }
+
+    setErrors(errors);
+    return formIsValid;
+  };
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Reset errors
-    setErrors({ title: '', ingredients: '', steps: '' });
-
-    // Validation checks
-    let formIsValid = true;
-    if (!title) {
-      setErrors((prev) => ({ ...prev, title: 'Title is required.' }));
-      formIsValid = false;
-    }
-    if (!ingredients) {
-      setErrors((prev) => ({ ...prev, ingredients: 'Ingredients are required.' }));
-      formIsValid = false;
-    } else if (ingredients.split('\n').length < 2) {
-      setErrors((prev) => ({ ...prev, ingredients: 'Please provide at least two ingredients.' }));
-      formIsValid = false;
-    }
-    if (!steps) {
-      setErrors((prev) => ({ ...prev, steps: 'Preparation steps are required.' }));
-      formIsValid = false;
-    }
-
-    // If form is valid, handle the form submission (e.g., send data to an API or add it to state)
-    if (formIsValid) {
+    // Perform validation
+    if (validate()) {
       const recipeData = { title, ingredients, steps };
       console.log('New Recipe Submitted:', recipeData);
       // You can add the recipe to a list or send it to a backend API here
