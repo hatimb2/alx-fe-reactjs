@@ -3,19 +3,43 @@
       "id": 1,
       "title": "Spaghetti Carbonara",
       "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients": [
+        "200g spaghetti",
+        "100g pancetta",
+        "2 large eggs",
+        "50g pecorino cheese",
+        "50g parmesan cheese",
+        "Freshly ground black pepper"
+      ],
+      "instructions": [
+        "Boil the spaghetti in salted water until al dente.",
+        "Fry the pancetta until crispy.",
+        "Whisk the eggs, cheeses, and pepper in a bowl.",
+        "Toss the pasta with pancetta and egg mixture.",
+        "Serve with more cheese and pepper on top."
+      ]
     },
     {
       "id": 2,
       "title": "Chicken Tikka Masala",
       "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
-      "image": "https://via.placeholder.com/150"
-    },
-    {
-      "id": 3,
-      "title": "Vegetable Stir Fry",
-      "summary": "A healthy mix of vegetables stir-fried in soy sauce with garlic, ginger, and sesame oil.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients": [
+        "500g chicken breast",
+        "1 onion",
+        "2 tomatoes",
+        "200ml heavy cream",
+        "2 tbsp curry powder",
+        "Garlic, ginger, salt"
+      ],
+      "instructions": [
+        "Marinate the chicken with yogurt, garlic, ginger, and spices.",
+        "Grill or pan-fry the chicken until cooked.",
+        "Cook onions and tomatoes in a pan with curry powder.",
+        "Add cream and simmer until thick.",
+        "Serve the chicken in the sauce with rice."
+      ]
     }
   ]
   
