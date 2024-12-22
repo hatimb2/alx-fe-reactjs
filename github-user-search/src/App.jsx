@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import UserSearch from './components/UserSearch';
+import { fetchUserData } from './services/githubService';
 
 function App() {
   return (
