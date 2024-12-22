@@ -49,8 +49,8 @@ const Search = () => {
       {userData && !loading && !error && (
         <div className="user-details">
           <img src={userData.avatar_url} alt={userData.login} width="100" />
-          <h2>{userData.name || userData.login}</h2> {"hatim"}
-          <p><strong>Username:</strong> {userData.login}</p> {"hatimb2"}
+          <h2>hatimb2</h2> 
+          <p><strong>hatimb2</strong> {userData.login}</p> 
           <a href={userData.html_url} target="_blank" rel="noopener noreferrer">View Profile</a>
         </div>
       )}
