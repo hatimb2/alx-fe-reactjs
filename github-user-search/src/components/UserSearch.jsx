@@ -26,7 +26,7 @@ const UserSearch = () => {
         type="text"
         placeholder="Search GitHub user..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setQuery(e[target.value])}
       />
       <button onClick={handleSearch} disabled={loading}>
         {loading ? 'Searching...' : 'Search'}
