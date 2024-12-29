@@ -11,7 +11,7 @@ const Search = () => {
 
   const handleChange = (e) => {
     const name = e.target;
-    const value = e['target']['value'];
+    const value = e["target.value"];
     if (name === 'username') setUsername(value);
     if (name === 'location') setLocation(value);
     if (name === 'minRepos') setMinRepos(value);
