@@ -20,13 +20,15 @@ const Search = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username) return;
-
+  
     setLoading(true);
     setError('');
     setUserData(null);
-
+  
+    const apiKey = process.env.REACT_APP_GITHUB_API_KEY; 
+  
     try {
-      const data = await fetchUserData(username, location, minRepos);
+      const data = await fetchUserData(username, location, minRepos, apiKey);
       setUserData(data);
     } catch (err) {
       setError('Looks like we cant find the user.');
@@ -34,6 +36,7 @@ const Search = () => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="p-4">
