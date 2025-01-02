@@ -27,16 +27,15 @@ function App() {
   return (
     <div className="App">
       {/* Edit the header to see HMR in action */}
-      <h1>GitHub User Search - React & Vite</h1> {/* Updated text */}
+      <h1>GitHub User Search</h1> {/* Updated text */}
+      {/* Search Form */}
+      <div>
+        <Search onSearch={handleSearch} />
+      </div>
       <div className="card">
         <button onClick={() => setUserData(null)}>
           Clear Search
         </button>
-      </div>
-
-      {/* Search Form */}
-      <div>
-        <Search onSearch={handleSearch} />
       </div>
 
       {/* Display loading, error, or user data */}
