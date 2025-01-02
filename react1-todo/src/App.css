@@ -40,3 +40,41 @@
 .read-the-docs {
   color: #888;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  padding: 8px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+li button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+}
