@@ -1,0 +1,91 @@
+/* General layout for the root container */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Basic styling for the todo list */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Individual todo item styles */
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  cursor: pointer; /* Show a pointer cursor on hover to indicate it's clickable */
+  transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+/* Styling for completed todos */
+.completed {
+  text-decoration: line-through;
+  color: #888; /* Optional: make the text color gray when completed */
+  background-color: #f0f0f0; /* Optional: change background color for completed todos */
+}
+
+/* Hover effect for todo items */
+li:hover {
+  background-color: #f9f9f9;
+}
+
+/* Styling for the input field */
+input {
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 200px; /* Limit the width for better appearance */
+}
+
+/* Button styling */
+button {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Styling for the delete button inside each todo item */
+li button {
+  background-color: red;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+/* Delete button hover effect */
+li button:hover {
+  background-color: #d32f2f;
+}
+
+/* Add margin at the bottom of the input field */
+input, button {
+  margin-bottom: 1rem;
+}
+
+/* Container for the todo list */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
