@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React,{useState} from "react";
 
 function TodoList() {
   const [todos, setTodos] = useState([
@@ -48,9 +48,13 @@ function TodoList() {
       {/* Display the list of todos */}
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-            <span onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <li
+            key={todo.id}
+            className={todo.completed ? 'completed' : ''}
+            onClick={() => toggleTodo(todo.id)}
+          >
+            <span>{todo.text}</span>
+            <button onClick={(e) => { e.stopPropagation(); deleteTodo(todo.id); }}>Delete</button>
           </li>
         ))}
       </ul>
