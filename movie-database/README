@@ -1,5 +1,50 @@
-Building the Movie Database project was a great learning experience. 
-I gained hands-on experience with API integration, React hooks for state management, and Tailwind CSS for responsive design. 
-One challenge I faced was handling API errors and ensuring the UI was responsive across devices, but overcoming these obstacles taught me valuable problem-solving skills. 
-Overall, the project helped me improve my frontend development skills and gave me a solid foundation for building more complex applications in the future. 
-I'm proud of the result and excited to expand on it.
+# Movie Database App
+
+## Overview
+
+This is a simple movie database application built with React. It allows users to search for movies, view details about them, and explore a wide variety of movies through a user-friendly interface. The app integrates with the OMDB API to fetch movie data.
+
+## Features
+
+- **Movie Search**: Users can search for movies by name using the search bar.
+- **Movie List**: Displays a list of movie cards that match the search query.
+- **Movie Details**: Users can click on a movie to see more detailed information, such as the plot, actors, and release year.
+- **Loading Indicator**: Displays a loading message while fetching movie data.
+- **Error Handling**: Displays error messages in case of invalid API calls or empty search results.
+
+## Components
+
+### 1. **App**
+The main component that holds the state and logic for searching and displaying movies, as well as selecting a movie for detailed view.
+
+- **State**: 
+  - `searchQuery`: The query entered by the user in the search bar.
+  - `movies`: An array of movies returned from the OMDB API based on the search query.
+  - `selectedMovie`: A movie object containing detailed information about the selected movie.
+  - `loading`: A boolean that determines if data is currently being fetched.
+  - `error`: Holds any error message returned during the fetch operation.
+
+### 2. **SearchBar**
+A functional component that takes input from the user for the movie search. It triggers the `setSearchQuery` function when the input changes.
+
+### 3. **MovieCard**
+Displays individual movie cards with basic details (like title, year, poster) for each movie in the search results. Clicking a card fetches and displays detailed movie information.
+
+### 4. **MovieDetails**
+Displays detailed information about the selected movie, such as the plot, actors, and release date. It includes a close button to hide the detailed view.
+
+## API Integration
+
+The app uses the OMDB API for fetching movie data. The API key is loaded from an environment variable (`VITE_OMDB_API_KEY`). Make sure to configure your OMDB API key in the environment settings.
+
+### API Endpoints
+
+- **Search Movies**:  
+  `https://www.omdbapi.com/?apikey=<API_KEY>&s=<SEARCH_QUERY>`  
+  Fetches a list of movies based on the search query.
+
+- **Get Movie Details**:  
+  `https://www.omdbapi.com/?apikey=<API_KEY>&i=<MOVIE_ID>`  
+  Fetches detailed information about a specific movie by its IMDb ID.
+
+
