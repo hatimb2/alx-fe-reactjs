@@ -1,3 +1,10 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary-bg: #1f2937; 
   --primary-color: #3b82f6; 
@@ -8,6 +15,14 @@ body {
   background-color: var(--secondary-bg);
   color: white;
   font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
 }
 
 button {
@@ -16,4 +31,56 @@ button {
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate__fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+button {
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: var(--primary-color);
+}
+
+input[type="text"] {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+
+@media (min-width: 640px) {
+
+}
+
+@media (min-width: 768px) {
+ 
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.text-primary {
+  color: var(--primary-color);
 }
