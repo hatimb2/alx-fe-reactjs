@@ -1,116 +1,19 @@
-/* Add Tailwind's base styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-bg: #1f2937; /* Tailwind gray-800 */
+  --primary-color: #3b82f6; /* Tailwind blue-500 */
+  --secondary-bg: #111827; /* Tailwind gray-900 */
 }
 
-/* Global styles */
 body {
-  @apply m-0 flex items-center justify-center min-w-[320px] min-h-screen bg-gray-900 text-white font-sans;
+  background-color: var(--secondary-bg);
+  color: white;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Link Styles */
-a {
-  @apply font-medium text-indigo-400 no-underline transition-colors duration-300 ease-in-out;
-}
-
-a:hover {
-  @apply text-indigo-500;
-}
-
-/* Heading Styles */
-h1 {
-  @apply text-4xl leading-tight text-center mb-4;
-}
-
-/* Button Styles */
 button {
-  @apply rounded-lg border border-transparent py-2 px-4 text-base font-medium bg-gray-800 cursor-pointer transition-colors duration-300 ease-in-out;
+  cursor: pointer;
 }
 
-button:hover {
-  @apply border-indigo-400 bg-gray-700;
-}
-
-button:focus,
-button:focus-visible {
-  @apply outline-none ring-4 ring-indigo-300;
-}
-
-/* Custom Movie Card */
-.movie-card {
-  @apply bg-gray-800 rounded-lg p-4 transition-all duration-300 cursor-pointer;
-}
-
-.movie-card:hover {
-  @apply bg-gray-700;
-}
-
-.movie-card img {
-  @apply w-full h-auto rounded-lg;
-}
-
-.movie-card h2 {
-  @apply text-lg mt-2 text-white;
-}
-
-.movie-card p {
-  @apply text-sm text-gray-400;
-}
-
-/* Movie Details Section */
-.movie-details {
-  @apply bg-gray-800 rounded-lg p-6 mt-8 w-full max-w-screen-md mx-auto;
-}
-
-.movie-details h1 {
-  @apply text-3xl font-bold text-white;
-}
-
-.movie-details p {
-  @apply text-base text-gray-300 leading-relaxed;
-}
-
-.movie-details img {
-  @apply w-full h-auto rounded-lg mt-4;
-}
-
-/* Light Mode Overrides (Tailwind handles color modes automatically) */
-@media (prefers-color-scheme: light) {
-  :root {
-    --background-color: #ffffff;
-    --text-color: #213547;
-    --input-bg-color: #f9f9f9;
-    --input-text-color: #333;
-  }
-
-  body {
-    @apply bg-white text-gray-900;
-  }
-
-  .movie-card {
-    @apply bg-gray-100 hover:bg-gray-200;
-  }
-
-  .movie-details {
-    @apply bg-gray-50 text-gray-900;
-  }
-
-  a:hover {
-    @apply text-indigo-600;
-  }
-
-  button {
-    @apply bg-gray-100 text-gray-900;
-  }
+img {
+  display: block;
 }
