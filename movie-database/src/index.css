@@ -1,7 +1,7 @@
 :root {
-  --primary-bg: #1f2937; /* Tailwind gray-800 */
-  --primary-color: #3b82f6; /* Tailwind blue-500 */
-  --secondary-bg: #111827; /* Tailwind gray-900 */
+  --primary-bg: #1f2937; 
+  --primary-color: #3b82f6; 
+  --secondary-bg: #111827; 
 }
 
 body {

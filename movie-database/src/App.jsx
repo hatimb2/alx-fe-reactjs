@@ -12,14 +12,14 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch movies when search query changes
+  
   useEffect(() => {
     if (searchQuery.trim()) {
       fetchMovies();
     }
   }, [searchQuery]);
 
-  // Fetch movie list based on search query
+  
   const fetchMovies = async () => {
     setLoading(true);
     setError(null);
@@ -40,7 +40,7 @@ function App() {
     }
   };
 
-  // Fetch detailed information about a selected movie
+  
   const fetchMovieDetails = async (id) => {
     setLoading(true);
     setError(null);
@@ -56,19 +56,19 @@ function App() {
     }
   };
 
-  // Handle input change for the search bar
+  
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  // Handle click on the search button
+  
   const handleSearchClick = () => {
     if (searchQuery.trim()) {
       fetchMovies();
     }
   };
 
-  // Handle click on a movie card to show details
+  
   const handleMovieClick = (id) => {
     fetchMovieDetails(id);
   };
